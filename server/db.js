@@ -70,28 +70,6 @@ const createProduct = async ({ name }) => {
   return response.rows[0];
 };
 
-// const authenticate = async ({ username, password }) => {
-//   const SQL = `
-//     SELECT id, username FROM users WHERE username=$1;
-//   `;
-//   const response = await client.query(SQL, [username]);
-//   if (!response.rows.length) {
-//     const error = Error("not authorized");
-//     error.status = 401;
-//     throw error;
-//   }
-//   const match = await bcrypt.compare(password, response.rows[0].password);
-//   if (!match) {
-//     const error = Error("not authorized");
-//     error.status = 401;
-//     throw error;
-//   }
-//   const token = jwt.sign({ id: response.rows[0].id }, process.env.JWT_SECRET, {
-//     expiresIn: "1h",
-//   });
-//   return { token };
-// };
-
 module.exports = {
   client,
   createTables,
